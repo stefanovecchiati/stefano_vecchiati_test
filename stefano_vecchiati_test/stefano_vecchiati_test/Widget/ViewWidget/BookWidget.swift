@@ -30,6 +30,31 @@ class BookWidget: BaseCollectionViewCell, ConfigurableCell {
     
     func configure(model: BookModel) {
         
+        addElementsToSuperView()
+        
+        bookTitleLabel.style { label in
+            label.numberOfLines = 0
+            label.font = UIFont.boldSystemFont(ofSize: 18)
+            label.text = model.title?.uppercased()
+        }
+        
+        bookDescriptionLabel.style { label in
+            label.numberOfLines = 0
+            label.textColor = .gray
+            label.font = UIFont.systemFont(ofSize: 14)
+            label.text = model.description
+        }
+        
+        guard let name = model.imageName else {
+            bookImageView.image = R.image.placeholder() ?? UIImage()
+            return
+        }
+        
+        bookImageView.image = UIImage(named: name) ?? R.image.placeholder() ?? UIImage()
+        
+    }
+    
+    func addElementsToSuperView() {
         sv(
             view.sv(
                 bookImageView,
@@ -38,21 +63,6 @@ class BookWidget: BaseCollectionViewCell, ConfigurableCell {
             )
             
         )
-        
-        bookTitleLabel.style { label in
-            label.numberOfLines = 0
-            label.font = UIFont.boldSystemFont(ofSize: 20)
-        }
-        
-        bookDescriptionLabel.style { label in
-            label.numberOfLines = 0
-            label.textColor = .gray
-            label.font = UIFont.systemFont(ofSize: 14)
-        }
-        
-        bookTitleLabel.text = "Title"
-        bookDescriptionLabel.text = "Test"
-        
     }
     
     func setConstraint() {
@@ -66,13 +76,13 @@ class BookWidget: BaseCollectionViewCell, ConfigurableCell {
         bookTitleLabel.Leading == bookImageView.Trailing + 10
         bookTitleLabel.Trailing == -10
 
-        align(tops: bookImageView,bookTitleLabel)
+        align(tops: bookImageView, bookTitleLabel)
 
-        bookDescriptionLabel.bottom(5)
         bookDescriptionLabel.Trailing == -10
         bookDescriptionLabel.Top == bookTitleLabel.Bottom + 10
 
         align(lefts: bookTitleLabel, bookDescriptionLabel)
+        align(bottoms: bookImageView, bookDescriptionLabel)
         
     }
     

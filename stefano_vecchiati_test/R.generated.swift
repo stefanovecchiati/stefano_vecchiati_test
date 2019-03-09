@@ -16,10 +16,18 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.file` struct is generated, and contains static references to 1 files.
+  /// This `R.file` struct is generated, and contains static references to 2 files.
   struct file {
+    /// Resource file `BookList.json`.
+    static let bookListJson = Rswift.FileResource(bundle: R.hostingBundle, name: "BookList", pathExtension: "json")
     /// Resource file `Podfile`.
     static let podfile = Rswift.FileResource(bundle: R.hostingBundle, name: "Podfile", pathExtension: "")
+    
+    /// `bundle.url(forResource: "BookList", withExtension: "json")`
+    static func bookListJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.bookListJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
     
     /// `bundle.url(forResource: "Podfile", withExtension: "")`
     static func podfile(_: Void = ()) -> Foundation.URL? {
@@ -30,12 +38,82 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 2 images.
+  /// This `R.image` struct is generated, and contains static references to 12 images.
   struct image {
+    /// Image `Book 10`.
+    static let book10 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Book 10")
+    /// Image `Book 1`.
+    static let book1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Book 1")
+    /// Image `Book 2`.
+    static let book2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Book 2")
+    /// Image `Book 3`.
+    static let book3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Book 3")
+    /// Image `Book 4`.
+    static let book4 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Book 4")
+    /// Image `Book 5`.
+    static let book5 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Book 5")
+    /// Image `Book 6`.
+    static let book6 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Book 6")
+    /// Image `Book 7`.
+    static let book7 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Book 7")
+    /// Image `Book 8`.
+    static let book8 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Book 8")
+    /// Image `Book 9`.
+    static let book9 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Book 9")
     /// Image `back`.
     static let back = Rswift.ImageResource(bundle: R.hostingBundle, name: "back")
     /// Image `placeholder`.
     static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
+    
+    /// `UIImage(named: "Book 1", bundle: ..., traitCollection: ...)`
+    static func book1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.book1, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Book 10", bundle: ..., traitCollection: ...)`
+    static func book10(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.book10, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Book 2", bundle: ..., traitCollection: ...)`
+    static func book2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.book2, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Book 3", bundle: ..., traitCollection: ...)`
+    static func book3(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.book3, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Book 4", bundle: ..., traitCollection: ...)`
+    static func book4(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.book4, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Book 5", bundle: ..., traitCollection: ...)`
+    static func book5(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.book5, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Book 6", bundle: ..., traitCollection: ...)`
+    static func book6(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.book6, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Book 7", bundle: ..., traitCollection: ...)`
+    static func book7(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.book7, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Book 8", bundle: ..., traitCollection: ...)`
+    static func book8(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.book8, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Book 9", bundle: ..., traitCollection: ...)`
+    static func book9(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.book9, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "back", bundle: ..., traitCollection: ...)`
     static func back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {

@@ -10,6 +10,8 @@
 		7B46A2342233AB2300BC1673 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46A2332233AB2300BC1673 /* R.generated.swift */; };
 		7B46A2372233B6AD00BC1673 /* BookListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46A2362233B6AD00BC1673 /* BookListViewModel.swift */; };
 		7B46A2392233BECE00BC1673 /* CellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46A2382233BECE00BC1673 /* CellConfigurator.swift */; };
+		7B46A23B2233E37100BC1673 /* BookList.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B46A23A2233E37100BC1673 /* BookList.json */; };
+		7B46A23D2233E4B600BC1673 /* JsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46A23C2233E4B600BC1673 /* JsonManager.swift */; };
 		7BEDF58C2233A20D00FE494C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF58B2233A20D00FE494C /* AppDelegate.swift */; };
 		7BEDF58E2233A20D00FE494C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF58D2233A20D00FE494C /* Extensions.swift */; };
 		7BEDF5922233A20D00FE494C /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5912233A20D00FE494C /* BaseCollectionViewCell.swift */; };
@@ -56,6 +58,8 @@
 		7B46A2332233AB2300BC1673 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		7B46A2362233B6AD00BC1673 /* BookListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewModel.swift; sourceTree = "<group>"; };
 		7B46A2382233BECE00BC1673 /* CellConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfigurator.swift; sourceTree = "<group>"; };
+		7B46A23A2233E37100BC1673 /* BookList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BookList.json; sourceTree = "<group>"; };
+		7B46A23C2233E4B600BC1673 /* JsonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonManager.swift; sourceTree = "<group>"; };
 		7BEDF5882233A20D00FE494C /* stefano_vecchiati_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stefano_vecchiati_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BEDF58B2233A20D00FE494C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BEDF58D2233A20D00FE494C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Utilities/Extensions.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 				7B46A2322233A5CA00BC1673 /* Utilities */,
 				7BEDF5AA2233A20D00FE494C /* Podfile */,
 				7BEDF5AE2233A20D00FE494C /* LoadingViewController.swift */,
+				7B46A23A2233E37100BC1673 /* BookList.json */,
 				7BEDF5B32233A20D00FE494C /* Localizable.strings */,
 				7BEDF5C62233A21000FE494C /* Assets.xcassets */,
 				7BEDF5C82233A21000FE494C /* LaunchScreen.storyboard */,
@@ -231,6 +236,7 @@
 		7BEDF5BF2233A20D00FE494C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7B46A23C2233E4B600BC1673 /* JsonManager.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BEDF5AB2233A20D00FE494C /* Podfile in Resources */,
+				7B46A23B2233E37100BC1673 /* BookList.json in Resources */,
 				7BEDF5B52233A20D00FE494C /* Localizable.strings in Resources */,
 				7BEDF5CA2233A21000FE494C /* LaunchScreen.storyboard in Resources */,
 				7BEDF5C72233A21000FE494C /* Assets.xcassets in Resources */,
@@ -490,6 +497,7 @@
 				7BEDF5922233A20D00FE494C /* BaseCollectionViewCell.swift in Sources */,
 				7BEDF5C22233A20D00FE494C /* BookModel.swift in Sources */,
 				7BEDF5AF2233A20D00FE494C /* LoadingViewController.swift in Sources */,
+				7B46A23D2233E4B600BC1673 /* JsonManager.swift in Sources */,
 				7B46A2392233BECE00BC1673 /* CellConfigurator.swift in Sources */,
 				7BEDF5962233A20D00FE494C /* BaseModel.swift in Sources */,
 			);
