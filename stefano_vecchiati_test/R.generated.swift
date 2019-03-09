@@ -30,44 +30,21 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 2 images.
   struct image {
     /// Image `back`.
     static let back = Rswift.ImageResource(bundle: R.hostingBundle, name: "back")
+    /// Image `placeholder`.
+    static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
     
     /// `UIImage(named: "back", bundle: ..., traitCollection: ...)`
     static func back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.back, compatibleWith: traitCollection)
     }
     
-    fileprivate init() {}
-  }
-  
-  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
-  struct nib {
-    /// Nib `BaseHorizontalCollectionView`.
-    static let baseHorizontalCollectionView = _R.nib._BaseHorizontalCollectionView()
-    /// Nib `ViewWidget`.
-    static let viewWidget = _R.nib._ViewWidget()
-    
-    /// `UINib(name: "BaseHorizontalCollectionView", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.baseHorizontalCollectionView) instead")
-    static func baseHorizontalCollectionView(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.baseHorizontalCollectionView)
-    }
-    
-    /// `UINib(name: "ViewWidget", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.viewWidget) instead")
-    static func viewWidget(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.viewWidget)
-    }
-    
-    static func baseHorizontalCollectionView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BaseHorizontalCollectionView? {
-      return R.nib.baseHorizontalCollectionView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BaseHorizontalCollectionView
-    }
-    
-    static func viewWidget(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ViewWidget? {
-      return R.nib.viewWidget.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ViewWidget
+    /// `UIImage(named: "placeholder", bundle: ..., traitCollection: ...)`
+    static func placeholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.placeholder, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -135,32 +112,6 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     try storyboard.validate()
-  }
-  
-  struct nib {
-    struct _BaseHorizontalCollectionView: Rswift.NibResourceType {
-      let bundle = R.hostingBundle
-      let name = "BaseHorizontalCollectionView"
-      
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> BaseHorizontalCollectionView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BaseHorizontalCollectionView
-      }
-      
-      fileprivate init() {}
-    }
-    
-    struct _ViewWidget: Rswift.NibResourceType {
-      let bundle = R.hostingBundle
-      let name = "ViewWidget"
-      
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ViewWidget? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ViewWidget
-      }
-      
-      fileprivate init() {}
-    }
-    
-    fileprivate init() {}
   }
   
   struct storyboard: Rswift.Validatable {

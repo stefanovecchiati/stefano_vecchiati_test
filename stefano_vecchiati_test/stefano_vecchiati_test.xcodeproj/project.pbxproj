@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7B46A2342233AB2300BC1673 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46A2332233AB2300BC1673 /* R.generated.swift */; };
+		7B46A2372233B6AD00BC1673 /* BookListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46A2362233B6AD00BC1673 /* BookListViewModel.swift */; };
+		7B46A2392233BECE00BC1673 /* CellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46A2382233BECE00BC1673 /* CellConfigurator.swift */; };
 		7BEDF58C2233A20D00FE494C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF58B2233A20D00FE494C /* AppDelegate.swift */; };
 		7BEDF58E2233A20D00FE494C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF58D2233A20D00FE494C /* Extensions.swift */; };
 		7BEDF5922233A20D00FE494C /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5912233A20D00FE494C /* BaseCollectionViewCell.swift */; };
@@ -16,15 +18,14 @@
 		7BEDF5982233A20D00FE494C /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5972233A20D00FE494C /* BaseNavigationController.swift */; };
 		7BEDF59A2233A20D00FE494C /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5992233A20D00FE494C /* BaseTabBarController.swift */; };
 		7BEDF59C2233A20D00FE494C /* BaseWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF59B2233A20D00FE494C /* BaseWidgetView.swift */; };
-		7BEDF5A52233A20D00FE494C /* ViewWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5A42233A20D00FE494C /* ViewWidget.swift */; };
-		7BEDF5A72233A20D00FE494C /* ViewWidget.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BEDF5A62233A20D00FE494C /* ViewWidget.xib */; };
+		7BEDF5A52233A20D00FE494C /* BookWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5A42233A20D00FE494C /* BookWidget.swift */; };
 		7BEDF5AB2233A20D00FE494C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 7BEDF5AA2233A20D00FE494C /* Podfile */; };
 		7BEDF5AD2233A20D00FE494C /* GeneralUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5AC2233A20D00FE494C /* GeneralUtils.swift */; };
 		7BEDF5AF2233A20D00FE494C /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5AE2233A20D00FE494C /* LoadingViewController.swift */; };
 		7BEDF5B22233A20D00FE494C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5B12233A20D00FE494C /* ViewController.swift */; };
 		7BEDF5B52233A20D00FE494C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BEDF5B32233A20D00FE494C /* Localizable.strings */; };
 		7BEDF5B72233A20D00FE494C /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5B62233A20D00FE494C /* DeviceModel.swift */; };
-		7BEDF5C22233A20D00FE494C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5C12233A20D00FE494C /* Model.swift */; };
+		7BEDF5C22233A20D00FE494C /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5C12233A20D00FE494C /* BookModel.swift */; };
 		7BEDF5C72233A21000FE494C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BEDF5C62233A21000FE494C /* Assets.xcassets */; };
 		7BEDF5CA2233A21000FE494C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BEDF5C82233A21000FE494C /* LaunchScreen.storyboard */; };
 		7BEDF5D52233A21000FE494C /* stefano_vecchiati_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5D42233A21000FE494C /* stefano_vecchiati_testTests.swift */; };
@@ -53,6 +54,8 @@
 		705D78887930A3D1FCBFEBCC /* Pods_stefano_vecchiati_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stefano_vecchiati_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76886C05F9A0EA070E76A5EF /* Pods-stefano_vecchiati_test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stefano_vecchiati_test.release.xcconfig"; path = "Pods/Target Support Files/Pods-stefano_vecchiati_test/Pods-stefano_vecchiati_test.release.xcconfig"; sourceTree = "<group>"; };
 		7B46A2332233AB2300BC1673 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		7B46A2362233B6AD00BC1673 /* BookListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewModel.swift; sourceTree = "<group>"; };
+		7B46A2382233BECE00BC1673 /* CellConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfigurator.swift; sourceTree = "<group>"; };
 		7BEDF5882233A20D00FE494C /* stefano_vecchiati_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stefano_vecchiati_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BEDF58B2233A20D00FE494C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BEDF58D2233A20D00FE494C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Utilities/Extensions.swift; sourceTree = "<group>"; };
@@ -62,15 +65,14 @@
 		7BEDF5972233A20D00FE494C /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseNavigationController.swift; path = Subclasses/Base/BaseNavigationController.swift; sourceTree = "<group>"; };
 		7BEDF5992233A20D00FE494C /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseTabBarController.swift; path = Subclasses/Base/BaseTabBarController.swift; sourceTree = "<group>"; };
 		7BEDF59B2233A20D00FE494C /* BaseWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseWidgetView.swift; path = Subclasses/Base/BaseWidgetView.swift; sourceTree = "<group>"; };
-		7BEDF5A42233A20D00FE494C /* ViewWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewWidget.swift; path = Widget/ViewWidget/ViewWidget.swift; sourceTree = "<group>"; };
-		7BEDF5A62233A20D00FE494C /* ViewWidget.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ViewWidget.xib; path = Widget/ViewWidget/ViewWidget.xib; sourceTree = "<group>"; };
+		7BEDF5A42233A20D00FE494C /* BookWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookWidget.swift; path = Widget/ViewWidget/BookWidget.swift; sourceTree = "<group>"; };
 		7BEDF5AA2233A20D00FE494C /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7BEDF5AC2233A20D00FE494C /* GeneralUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralUtils.swift; path = Utilities/GeneralUtils.swift; sourceTree = "<group>"; };
 		7BEDF5AE2233A20D00FE494C /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		7BEDF5B12233A20D00FE494C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Subclasses/Base/ViewController/ViewController.swift; sourceTree = "<group>"; };
 		7BEDF5B42233A20D00FE494C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7BEDF5B62233A20D00FE494C /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeviceModel.swift; path = Utilities/DeviceModel.swift; sourceTree = "<group>"; };
-		7BEDF5C12233A20D00FE494C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Model.swift; path = Services/Models/Model.swift; sourceTree = "<group>"; };
+		7BEDF5C12233A20D00FE494C /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookModel.swift; path = Services/Models/BookModel.swift; sourceTree = "<group>"; };
 		7BEDF5C62233A21000FE494C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BEDF5C92233A21000FE494C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7BEDF5CB2233A21000FE494C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,6 +131,14 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		7B46A2352233B63200BC1673 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7B46A2362233B6AD00BC1673 /* BookListViewModel.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
 		7BEDF57E2233A20D00FE494C = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 				7BEDF58B2233A20D00FE494C /* AppDelegate.swift */,
 				7BEDF58F2233A20D00FE494C /* Subclasses */,
 				7BEDF5A22233A20D00FE494C /* Widget */,
+				7B46A2352233B63200BC1673 /* ViewModel */,
 				7BEDF5C02233A20D00FE494C /* Model */,
 				7BEDF5BF2233A20D00FE494C /* Services */,
 				7B46A2322233A5CA00BC1673 /* Utilities */,
@@ -181,6 +192,7 @@
 		7BEDF5902233A20D00FE494C /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				7B46A2382233BECE00BC1673 /* CellConfigurator.swift */,
 				7BEDF5912233A20D00FE494C /* BaseCollectionViewCell.swift */,
 				7BEDF5932233A20D00FE494C /* BaseColletcionView.swift */,
 				7BEDF5952233A20D00FE494C /* BaseModel.swift */,
@@ -195,18 +207,17 @@
 		7BEDF5A22233A20D00FE494C /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				7BEDF5A32233A20D00FE494C /* ViewWidget */,
+				7BEDF5A32233A20D00FE494C /* BookWidget */,
 			);
 			name = Widget;
 			sourceTree = "<group>";
 		};
-		7BEDF5A32233A20D00FE494C /* ViewWidget */ = {
+		7BEDF5A32233A20D00FE494C /* BookWidget */ = {
 			isa = PBXGroup;
 			children = (
-				7BEDF5A42233A20D00FE494C /* ViewWidget.swift */,
-				7BEDF5A62233A20D00FE494C /* ViewWidget.xib */,
+				7BEDF5A42233A20D00FE494C /* BookWidget.swift */,
 			);
-			name = ViewWidget;
+			name = BookWidget;
 			sourceTree = "<group>";
 		};
 		7BEDF5B02233A20D00FE494C /* ViewController */ = {
@@ -227,7 +238,7 @@
 		7BEDF5C02233A20D00FE494C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7BEDF5C12233A20D00FE494C /* Model.swift */,
+				7BEDF5C12233A20D00FE494C /* BookModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -367,7 +378,6 @@
 			files = (
 				7BEDF5AB2233A20D00FE494C /* Podfile in Resources */,
 				7BEDF5B52233A20D00FE494C /* Localizable.strings in Resources */,
-				7BEDF5A72233A20D00FE494C /* ViewWidget.xib in Resources */,
 				7BEDF5CA2233A21000FE494C /* LaunchScreen.storyboard in Resources */,
 				7BEDF5C72233A21000FE494C /* Assets.xcassets in Resources */,
 			);
@@ -466,10 +476,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BEDF5AD2233A20D00FE494C /* GeneralUtils.swift in Sources */,
-				7BEDF5A52233A20D00FE494C /* ViewWidget.swift in Sources */,
+				7BEDF5A52233A20D00FE494C /* BookWidget.swift in Sources */,
 				7BEDF5B72233A20D00FE494C /* DeviceModel.swift in Sources */,
 				7BEDF59A2233A20D00FE494C /* BaseTabBarController.swift in Sources */,
 				7BEDF59C2233A20D00FE494C /* BaseWidgetView.swift in Sources */,
+				7B46A2372233B6AD00BC1673 /* BookListViewModel.swift in Sources */,
 				7BEDF5B22233A20D00FE494C /* ViewController.swift in Sources */,
 				7BEDF58C2233A20D00FE494C /* AppDelegate.swift in Sources */,
 				7BEDF5942233A20D00FE494C /* BaseColletcionView.swift in Sources */,
@@ -477,8 +488,9 @@
 				7BEDF58E2233A20D00FE494C /* Extensions.swift in Sources */,
 				7B46A2342233AB2300BC1673 /* R.generated.swift in Sources */,
 				7BEDF5922233A20D00FE494C /* BaseCollectionViewCell.swift in Sources */,
-				7BEDF5C22233A20D00FE494C /* Model.swift in Sources */,
+				7BEDF5C22233A20D00FE494C /* BookModel.swift in Sources */,
 				7BEDF5AF2233A20D00FE494C /* LoadingViewController.swift in Sources */,
+				7B46A2392233BECE00BC1673 /* CellConfigurator.swift in Sources */,
 				7BEDF5962233A20D00FE494C /* BaseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

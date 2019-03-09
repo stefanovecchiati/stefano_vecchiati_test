@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Stevia
 
 class ViewController: UIViewController {
     
@@ -13,7 +14,6 @@ class ViewController: UIViewController {
     var backgroundImage : UIImageView!
     
     private var viewModel : BaseModel!
-    private var cellsToLoad : [BaseCellStruct] = []
     
     init(withModel model: BaseModel!) {
         super.init(nibName: nil, bundle: nil)
@@ -51,10 +51,8 @@ class ViewController: UIViewController {
         addBackgroudImage()
         addCollectionView()
         
-        cellsToLoad = viewModel.cells.filter({ $0.father == nil })
-        
-        for cell in cellsToLoad {
-            collectionView.register(cell.nib, forCellWithReuseIdentifier: cell.identifier)
+        for cell in viewModel.cells {
+            collectionView.register(BookWidget.self, forCellWithReuseIdentifier: type(of: cell).reuseId)
         }
         
         collectionView.dataSource = self
@@ -96,6 +94,7 @@ class ViewController: UIViewController {
     private func addBackgroudImage() {
         backgroundImage = UIImageView(image: viewModel.backgroudImage)
         backgroundImage.contentMode = .scaleAspectFill
+        
         view.insertSubview(backgroundImage, at: 0)
         
         backgroundImage.translatesAutoresizingMaskIntoConstraints = false
@@ -120,28 +119,14 @@ class ViewController: UIViewController {
     private func addCollectionView() {
         
         collectionView = BaseColletcionView(frame: view.frame, collectionViewLayout: UICollectionViewFlowLayout.init())
-        view.addSubview(collectionView)
         
+        view.sv(
+           collectionView
+        )
         
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let leftConstraint = NSLayoutConstraint(item: collectionView, attribute: NSLayoutConstraint.Attribute.left, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.left, multiplier: 1, constant: 0)
-        //        leftConstraint.priority = .defaultHigh
-        
-        let rightConstraint = NSLayoutConstraint(item: collectionView, attribute: NSLayoutConstraint.Attribute.right, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.right, multiplier: 1, constant: 0)
-        //        rightConstraint.priority = .defaultHigh
-        
-        let topConstraint = NSLayoutConstraint(item: collectionView, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.topMargin, multiplier: 1, constant: 0)
-        //        topConstraint.priority = .defaultHigh
-        
-        collectionBottomConstraint = NSLayoutConstraint(item: collectionView, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.bottomMargin, multiplier: 1, constant: 0)
-        //        bottomConstraint.priority = .defaultHigh
-        
-        view.addConstraints([leftConstraint, rightConstraint, topConstraint, collectionBottomConstraint])
+        collectionView.fillContainer()
         
         collectionView.setupCollection(withModel: viewModel)
-        
-        collectionView.layoutIfNeeded()
         
         
     }
@@ -176,20 +161,22 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cellsToLoad.count
+        return viewModel.cells.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let baseCell = (collectionView.dequeueReusableCell(withReuseIdentifier: cellsToLoad[indexPath.item].identifier, for: indexPath))
+        let item = viewModel.cells[indexPath.row]
         
-        guard let cell = baseCell as? BaseCollectionViewCell else { return baseCell }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: type(of: item).reuseId, for: indexPath)
         
-        cell.baseModel = viewModel
-        cell.selectedStruct = cellsToLoad[indexPath.item]
-        cell.delegate = cellsToLoad[indexPath.item].delegate
-        
-        cell.contentSetup()
+        item.configure(cell: cell)
+//
+//        cell.baseModel = viewModel
+//        cell.selectedStruct = viewModel.cells[indexPath.item]
+//        cell.delegate = viewModel.cells[indexPath.item].delegate
+//
+//        cell.contentSetup()
         
         return cell
     }

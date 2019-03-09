@@ -16,6 +16,8 @@ class BaseNavigationController: UINavigationController {
         
         self.navigationBar.backIndicatorImage = R.image.back()
         self.navigationBar.backIndicatorTransitionMaskImage = R.image.back()
+        
+        self.navigationBar.isTranslucent = false
 
         if #available(iOS 11.0, *) {
             if (UIDevice().type != .iPhone5S && UIDevice().type != .iPhoneSE && UIDevice().type != .simulator) || UIScreen.main.bounds.height > 568.0 {

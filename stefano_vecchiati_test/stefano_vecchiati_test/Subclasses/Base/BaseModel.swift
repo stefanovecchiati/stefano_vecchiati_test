@@ -10,13 +10,11 @@ import UIKit
 class BaseCellStruct {
     var nib : UINib!
     var identifier : String!
-    var father : String?
     weak var delegate : GenericStruct?
     
-    init(nib : UINib, identifier: String, father: String?, delegate: GenericStruct? = nil) {
+    init(nib : UINib, identifier: String, delegate: GenericStruct? = nil) {
         self.nib = nib
         self.identifier = identifier
-        self.father = father
         self.delegate = delegate
     }
     
@@ -24,7 +22,7 @@ class BaseCellStruct {
 
 class BaseModel: NSObject {
     
-    var cells : [BaseCellStruct]!
+    var cells : [CellConfigurator]!
     var titleViewController : String!
     var touchForCloseKeyboard : Bool = false
     var resizeForKeyboard : Bool = false

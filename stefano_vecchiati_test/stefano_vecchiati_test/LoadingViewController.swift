@@ -23,7 +23,7 @@ class LoadingViewController: UIViewController {
             
             super.viewDidAppear(animated)
             
-            let viewController = ViewController(withModel: Model.createModel())
+            let viewController = ViewController(withModel: BookListViewModel.createModel())
             
             UIApplication.shared.delegate?.window??.rootViewController = BaseNavigationController(rootViewController: viewController)
             UIApplication.shared.delegate?.window??.makeKeyAndVisible()

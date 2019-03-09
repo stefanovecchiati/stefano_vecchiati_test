@@ -6,29 +6,34 @@
 //
 
 import UIKit
+import Stevia
 
 class BaseCollectionViewCell: UICollectionViewCell {
+    
     
     var baseModel : BaseModel?
     var selectedStruct : Any?
     weak var delegate : GenericStruct?
+    
+    required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder)}
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         if #available(iOS 12, *) { setupSelfSizingForiOS12(contentView: contentView) }
         
-        setupCell()
-        
-        
-    }
-    
-    func setupCell() {
         
     }
     
     func contentSetup() {
         
+    }
+    
+    static func reuseIdentifier() -> String {
+        return String(describing: self)
     }
     
 }

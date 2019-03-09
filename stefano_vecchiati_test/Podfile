@@ -8,7 +8,7 @@ target 'stefano_vecchiati_test' do
 
 pod 'R.swift'
 
-pod 'Reveal-SDK', :configurations => ['Debug']
+#pod 'Reveal-SDK', :configurations => ['Debug']
 
 pod 'LifetimeTracker', :configurations => ['Debug']
 
