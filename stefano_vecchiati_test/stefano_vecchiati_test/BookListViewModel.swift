@@ -9,16 +9,17 @@
 import UIKit
 
 
-class BookListViewModel: BaseCellStruct {
+class BookListViewModel {
     
     typealias BookCellConfig = CollectionCellConfigurator<BookWidget, BookModel>
-
     
-    static func createModel() -> BaseModel? {
+    private var books: [BookModel] = []
+
+    func createModel() -> BaseModel? {
         
         let model = BaseModel()
         
-        let jsonResult = JsonManager.share.readJson(fileName: "BookList")
+        let jsonResult = JsonManager.share.readJson(fileName: FileJSONName.BookList.rawValue)
         
         guard let data = jsonResult.0, jsonResult.1 == nil else {
             
@@ -31,10 +32,10 @@ class BookListViewModel: BaseCellStruct {
         
         let decoder = JSONDecoder()
         do {
-            let books = try decoder.decode([BookModel].self, from: data)
+            books = try decoder.decode([BookModel].self, from: data)
             
             for book in books {
-               let cell = BookCellConfig.init(item: book)
+                let cell = BookCellConfig.init(item: book)
                 model.cells.append(cell)
             }
             
@@ -48,9 +49,32 @@ class BookListViewModel: BaseCellStruct {
             
         }
 
-        model.titleViewController = "Book List"
+        model.titleViewController = R.string.localizable.kBookListTitle()
+        model.delegate = self
+        
+        let randomRateButton = UIBarButtonItem(title: R.string.localizable.kRandomRaiting(), style: .plain, target: self, action: nil)
+        model.rightBarButtonItems = [randomRateButton]
         
         return model
     }
 
 }
+
+extension BookListViewModel: GenericDelegate {
+    
+    
+    func valueDidChange(key: ValueDidChangeKeys, value: Any, index: IndexPath) {
+        switch key {
+        case .Rate:
+            guard let rateValue = value as? Double else { return }
+            books[index.row].rate = rateValue
+            JsonManager.share.writeJson(fileName: FileJSONName.BookList.rawValue, object: AnyEncodable(books), completion: { _ in })
+        default:
+            break
+        }
+    }
+    
+    
+}
+
+

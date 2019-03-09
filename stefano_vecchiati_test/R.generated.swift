@@ -143,8 +143,12 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 2 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
     struct localizable {
+      /// en translation: BOOK LIST
+      /// 
+      /// Locales: en
+      static let kBookListTitle = Rswift.StringResource(key: "kBookListTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Error
       /// 
       /// Locales: en
@@ -153,6 +157,17 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let kOkay = Rswift.StringResource(key: "kOkay", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: RANDOM RATING
+      /// 
+      /// Locales: en
+      static let kRandomRaiting = Rswift.StringResource(key: "kRandomRaiting", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      
+      /// en translation: BOOK LIST
+      /// 
+      /// Locales: en
+      static func kBookListTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kBookListTitle", bundle: R.hostingBundle, comment: "")
+      }
       
       /// en translation: Error
       /// 
@@ -166,6 +181,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func kOkay(_: Void = ()) -> String {
         return NSLocalizedString("kOkay", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: RANDOM RATING
+      /// 
+      /// Locales: en
+      static func kRandomRaiting(_: Void = ()) -> String {
+        return NSLocalizedString("kRandomRaiting", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

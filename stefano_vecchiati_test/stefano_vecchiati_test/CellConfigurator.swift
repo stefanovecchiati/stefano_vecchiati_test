@@ -5,17 +5,18 @@
 
 import UIKit
 
-protocol ConfigurableCell {
+protocol ConfigurableCell : class {
     associatedtype DataType
     func configure(model: DataType)
 }
 
-protocol CellConfigurator {
+protocol CellConfigurator : class {
     static var reuseId: String { get }
     func configure(cell: UIView)
+    
 }
 
-class CollectionCellConfigurator<CellType: ConfigurableCell, DataType>: CellConfigurator where CellType.DataType == DataType, CellType: UICollectionViewCell {
+class CollectionCellConfigurator<CellType: ConfigurableCell, DataType>: CellConfigurator where CellType.DataType == DataType, CellType: BaseCollectionViewCell {
     
     static var reuseId: String { return String(describing: CellType.self) }
     
@@ -27,7 +28,9 @@ class CollectionCellConfigurator<CellType: ConfigurableCell, DataType>: CellConf
     }
     
     func configure(cell: UIView) {
+        
         (cell as! CellType).configure(model: item)
+        
     }
     
 }

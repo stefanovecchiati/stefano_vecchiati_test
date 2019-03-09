@@ -10,6 +10,6 @@ struct BookModel: Codable {
     var title: String?
     var description: String?
     var imageName: String?
-    var rate: Int? = 0
+    var rate: Double? = 0
     
 }

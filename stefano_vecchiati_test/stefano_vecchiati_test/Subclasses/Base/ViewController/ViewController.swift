@@ -15,9 +15,9 @@ class ViewController: UIViewController {
     
     private var viewModel : BaseModel!
     
-    init(withModel model: BaseModel!) {
+    init(withModel model: BaseModel?) {
         super.init(nibName: nil, bundle: nil)
-        viewModel = model
+        viewModel = model ?? BaseModel()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -67,22 +67,8 @@ class ViewController: UIViewController {
         UIApplication.topViewController()?.navigationController?.setNavigationBarHidden(viewModel.hideNavigationBar, animated: animated)
     }
     
-    private var firstLoad: Bool = true
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if firstLoad {
-            
-            firstLoad = false
-            
-            viewModel.delegate?.loadWidget?()
-            
-            if viewModel.centerViewController {
-                collectionView.contentInset.top = max((collectionView.frame.height - collectionView.contentSize.height) / 2, 0)
-            }
-        }
-        
         
     }
     
@@ -144,7 +130,6 @@ class ViewController: UIViewController {
     }
     
     deinit {
-        viewModel.delegate?.deinitListener?()
         
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
@@ -168,23 +153,26 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let item = viewModel.cells[indexPath.row]
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: type(of: item).reuseId, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: type(of: item).reuseId, for: indexPath) as? BaseCollectionViewCell else { return UICollectionViewCell() }
         
         item.configure(cell: cell)
-//
-//        cell.baseModel = viewModel
-//        cell.selectedStruct = viewModel.cells[indexPath.item]
-//        cell.delegate = viewModel.cells[indexPath.item].delegate
-//
-//        cell.contentSetup()
+        
+        cell.delegate = self
+        cell.indexPath = indexPath
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.delegate?.selectedCell(index: indexPath)
+        
     }
     
+}
+
+extension ViewController: GenericDelegate {
+    func valueDidChange(key: ValueDidChangeKeys, value: Any, index: IndexPath) {
+        viewModel.delegate?.valueDidChange(key: key, value: value, index: index)
+    }
 }
 
 extension ViewController {

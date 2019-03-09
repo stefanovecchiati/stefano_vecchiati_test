@@ -7,19 +7,6 @@
 
 import UIKit
 
-class BaseCellStruct {
-    var nib : UINib!
-    var identifier : String!
-    weak var delegate : GenericStruct?
-    
-    init(nib : UINib, identifier: String, delegate: GenericStruct? = nil) {
-        self.nib = nib
-        self.identifier = identifier
-        self.delegate = delegate
-    }
-    
-}
-
 class BaseModel: NSObject {
     
     var cells : [CellConfigurator]!
@@ -33,7 +20,7 @@ class BaseModel: NSObject {
     var leftBarButtonItems : [UIBarButtonItem]!
     var hideNavigationBar : Bool = false
     var backgroudImage : UIImage? = nil
-    weak var delegate : LoadWidgetsDelegate?
+    var delegate: GenericDelegate?
     
     override init() {
         super.init()
@@ -45,18 +32,13 @@ class BaseModel: NSObject {
         leftBarButtonItems = []
         
     }
-    
-    func setupDelegate(delegate: LoadWidgetsDelegate? = nil) {
-        self.delegate = delegate
-    }
 
 }
 
-@objc protocol GenericStruct : class {
+protocol GenericDelegate : class {
+    func valueDidChange(key: ValueDidChangeKeys, value : Any, index: IndexPath)
 }
 
-@objc protocol LoadWidgetsDelegate : GenericStruct {
-    @objc optional func loadWidget()
-    func selectedCell(index: IndexPath)
-    @objc optional func deinitListener()
-}
+
+
+

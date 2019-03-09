@@ -12,6 +12,7 @@
 		7B46A2392233BECE00BC1673 /* CellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46A2382233BECE00BC1673 /* CellConfigurator.swift */; };
 		7B46A23B2233E37100BC1673 /* BookList.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B46A23A2233E37100BC1673 /* BookList.json */; };
 		7B46A23D2233E4B600BC1673 /* JsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46A23C2233E4B600BC1673 /* JsonManager.swift */; };
+		7B46A23F2234301500BC1673 /* BaseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46A23E2234301500BC1673 /* BaseEnum.swift */; };
 		7BEDF58C2233A20D00FE494C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF58B2233A20D00FE494C /* AppDelegate.swift */; };
 		7BEDF58E2233A20D00FE494C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF58D2233A20D00FE494C /* Extensions.swift */; };
 		7BEDF5922233A20D00FE494C /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5912233A20D00FE494C /* BaseCollectionViewCell.swift */; };
@@ -60,6 +61,7 @@
 		7B46A2382233BECE00BC1673 /* CellConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfigurator.swift; sourceTree = "<group>"; };
 		7B46A23A2233E37100BC1673 /* BookList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BookList.json; sourceTree = "<group>"; };
 		7B46A23C2233E4B600BC1673 /* JsonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonManager.swift; sourceTree = "<group>"; };
+		7B46A23E2234301500BC1673 /* BaseEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEnum.swift; sourceTree = "<group>"; };
 		7BEDF5882233A20D00FE494C /* stefano_vecchiati_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stefano_vecchiati_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BEDF58B2233A20D00FE494C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BEDF58D2233A20D00FE494C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Utilities/Extensions.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				7BEDF5912233A20D00FE494C /* BaseCollectionViewCell.swift */,
 				7BEDF5932233A20D00FE494C /* BaseColletcionView.swift */,
 				7BEDF5952233A20D00FE494C /* BaseModel.swift */,
+				7B46A23E2234301500BC1673 /* BaseEnum.swift */,
 				7BEDF5972233A20D00FE494C /* BaseNavigationController.swift */,
 				7BEDF5992233A20D00FE494C /* BaseTabBarController.swift */,
 				7BEDF59B2233A20D00FE494C /* BaseWidgetView.swift */,
@@ -416,6 +419,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-stefano_vecchiati_test/Pods-stefano_vecchiati_test-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework",
@@ -424,6 +428,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stevia.framework",
@@ -500,6 +505,7 @@
 				7B46A23D2233E4B600BC1673 /* JsonManager.swift in Sources */,
 				7B46A2392233BECE00BC1673 /* CellConfigurator.swift in Sources */,
 				7BEDF5962233A20D00FE494C /* BaseModel.swift in Sources */,
+				7B46A23F2234301500BC1673 /* BaseEnum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

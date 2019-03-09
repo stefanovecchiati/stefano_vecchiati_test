@@ -5,11 +5,14 @@
 
 import UIKit
 import Stevia
+import Cosmos
 
 class BookWidget: BaseCollectionViewCell, ConfigurableCell {
+
     typealias DataType = BookModel
     
-    private var view : UIView = UIView()
+    private let view = UIView()
+    private let rateView = CosmosView()
     
     private var bookImageView : UIImageView = UIImageView(image: R.image.placeholder() ?? UIImage()) {
         didSet {
@@ -21,8 +24,8 @@ class BookWidget: BaseCollectionViewCell, ConfigurableCell {
     }
     
     
-    private var bookTitleLabel : UILabel = UILabel()
-    private var bookDescriptionLabel : UILabel = UILabel()
+    private let bookTitleLabel : UILabel = UILabel()
+    private let bookDescriptionLabel : UILabel = UILabel()
     
     @objc func injected() {
        
@@ -52,6 +55,28 @@ class BookWidget: BaseCollectionViewCell, ConfigurableCell {
         
         bookImageView.image = UIImage(named: name) ?? R.image.placeholder() ?? UIImage()
         
+        rateView.style { rate in
+            
+            let colorStarEmpty : UIColor = .lightGray
+            let colortStarFull : UIColor = .orange
+            
+            rate.settings.fillMode = .half
+            rate.settings.filledColor = colortStarFull
+            rate.settings.filledBorderColor = colortStarFull
+            rate.settings.emptyColor = colorStarEmpty
+            rate.settings.emptyBorderColor = colorStarEmpty
+            rate.rating = model.rate ?? 0
+            rate.text = "(\(model.rate ?? 0))"
+        }
+        
+        rateView.didFinishTouchingCosmos = { rating in
+            self.delegate?.valueDidChange(key: .Rate, value: rating, index: self.indexPath)
+        }
+        
+        rateView.didTouchCosmos = { rating in
+            self.rateView.text = "(\(rating))"
+        }
+        
     }
     
     func addElementsToSuperView() {
@@ -59,6 +84,7 @@ class BookWidget: BaseCollectionViewCell, ConfigurableCell {
             view.sv(
                 bookImageView,
                 bookTitleLabel,
+                rateView,
                 bookDescriptionLabel
             )
             
@@ -77,11 +103,15 @@ class BookWidget: BaseCollectionViewCell, ConfigurableCell {
         bookTitleLabel.Trailing == -10
 
         align(tops: bookImageView, bookTitleLabel)
-
+        
+        rateView.Top == bookTitleLabel.Bottom + 5
+        rateView.Trailing == -10
+        rateView.Height == 20
+        
         bookDescriptionLabel.Trailing == -10
-        bookDescriptionLabel.Top == bookTitleLabel.Bottom + 10
+        bookDescriptionLabel.Top == rateView.Bottom + 5
 
-        align(lefts: bookTitleLabel, bookDescriptionLabel)
+        align(lefts: bookTitleLabel, bookDescriptionLabel, rateView)
         align(bottoms: bookImageView, bookDescriptionLabel)
         
     }
