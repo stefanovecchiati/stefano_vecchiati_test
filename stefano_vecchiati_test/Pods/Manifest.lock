@@ -1,0 +1,32 @@
+PODS:
+  - LifetimeTracker (1.6.0)
+  - R.swift (5.0.2):
+    - R.swift.Library (~> 5.0.0)
+  - R.swift.Library (5.0.0)
+  - Reveal-SDK (21)
+  - SteviaLayout (4.4.3)
+
+DEPENDENCIES:
+  - LifetimeTracker
+  - R.swift
+  - Reveal-SDK
+  - SteviaLayout
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - LifetimeTracker
+    - R.swift
+    - R.swift.Library
+    - Reveal-SDK
+    - SteviaLayout
+
+SPEC CHECKSUMS:
+  LifetimeTracker: 8b7f2979fa70a41e9aaff63d158cae7a027eef10
+  R.swift: 81455d81467763cbd3f4d79d938d05f4ac4c0228
+  R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
+  Reveal-SDK: 3523e0eb7c562811c51bb71da6e523a6373702c8
+  SteviaLayout: ae5ee66101e03607a93c9b3773b84ab7ba7b3d17
+
+PODFILE CHECKSUM: 1ae5d5934c0045610822d394eb67ccd81f323fea
+
+COCOAPODS: 1.5.3
