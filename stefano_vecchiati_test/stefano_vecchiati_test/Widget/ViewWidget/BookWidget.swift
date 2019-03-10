@@ -102,7 +102,13 @@ class BookWidget: UICollectionViewCell, ConfigurableCell {
     func setConstraint() {
         
         // view container contraint
-        view.Width == UIScreen.main.bounds.width
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            view.Width == UIScreen.main.bounds.width
+        default:
+            view.Width == (UIScreen.main.bounds.width - BaseColletcionView.minimumInteritemSpacing) / 2
+        }
+        
         view.top(0).bottom(0).left(0).right(0)
         
         // imageView constraint

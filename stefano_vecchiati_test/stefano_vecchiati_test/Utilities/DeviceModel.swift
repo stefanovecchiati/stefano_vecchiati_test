@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum UIUserInterfaceIdiom : Int {
+    case unspecified
+    
+    case phone // iPhone and iPod touch style UI
+    case pad // iPad style UI
+}
+
 public enum DeviceModel : String {
     case simulator   = "simulator/sandbox",
     iPod1            = "iPod 1",

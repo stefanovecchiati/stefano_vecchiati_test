@@ -27,22 +27,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if viewModel.resizeForKeyboard {
-            
-            let notificationCenter = NotificationCenter.default
-            notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-            notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-            
-        }
-        
-        if viewModel.touchForCloseKeyboard {
-            
-            hideKeyboardWhenTappedAround()
-            
-        }
-        
         if viewModel.titleViewController != nil && !viewModel.titleViewController.isEmpty {
-            self.title = viewModel.titleViewController
+            
+            if (UIDevice().type != .iPhone5S && UIDevice().type != .iPhoneSE && UIDevice().type != .simulator) || UIScreen.main.bounds.height > 568.0 {
+                self.title = viewModel.titleViewController
+            }
+            
         }
         
         self.navigationItem.rightBarButtonItems = viewModel.rightBarButtonItems
@@ -104,37 +94,5 @@ class ViewController: UIViewController {
         
     }
     
-    @objc func adjustForKeyboard(notification: Notification) {
-        let userInfo = notification.userInfo!
-        
-        let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        
-        if notification.name == UIResponder.keyboardWillHideNotification {
-            collectionBottomConstraint.constant = 0
-        } else {
-            collectionBottomConstraint.constant = collectionBottomConstraint.constant - keyboardScreenEndFrame.height
-        }
-    }
     
-    deinit {
-        
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
-    }
-    
-    
-}
-
-
-extension ViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
 }

@@ -9,6 +9,8 @@ import UIKit
 
 class BaseColletcionView: UICollectionView {
     
+    static let minimumInteritemSpacing : CGFloat = 10
+    
     func setupCollection(withModel model : BaseModel) {
         
         self.backgroundColor = .clear
@@ -22,7 +24,7 @@ class BaseColletcionView: UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = CGSize(width: 10, height: 40)
         layout.itemSize = UICollectionViewFlowLayout.automaticSize
-        layout.minimumInteritemSpacing = 10
+        layout.minimumInteritemSpacing = BaseColletcionView.minimumInteritemSpacing
         self.collectionViewLayout = layout
         
     }
