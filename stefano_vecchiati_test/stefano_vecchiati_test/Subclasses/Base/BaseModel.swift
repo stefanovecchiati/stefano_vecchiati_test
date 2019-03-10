@@ -22,9 +22,9 @@ class BaseModel: NSObject {
     var backgroudImage : UIImage? = nil
     var collectionDirector: CollectionDirector!
     
-    func addHandlers() {
-        
-    }
+    func addHandlers() {}
+    
+    func registerCells() {}
     
     override init() {
         super.init()
@@ -37,6 +37,20 @@ class BaseModel: NSObject {
         
     }
 
+}
+
+extension BaseModel {
+    
+    
+    func randomDelay(range: Range<UInt32>, completion: ()->()) {
+        if let first = range.first,
+            let last = range.last {
+            let d = arc4random_uniform(last) + first
+            sleep(d)
+            completion()
+        }
+    }
+    
 }
 
 

@@ -1,6 +1,6 @@
 //
 //  Created by stefano vecchiati.
-//  Copyright © 2018 co.eggon. All rights reserved.
+//  Copyright © 2018 All rights reserved.
 //
 
 import UIKit
@@ -33,6 +33,7 @@ class CollectionCellConfigurator<CellType: ConfigurableCell, DataType: Hashable>
     
     func configure(cell: UIView) {
         (cell as! CellType).configure(data: item)
+        
     }
     
     var hash: Int {

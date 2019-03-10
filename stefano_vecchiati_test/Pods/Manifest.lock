@@ -1,6 +1,5 @@
 PODS:
   - Cosmos (18.0.1)
-  - LifetimeTracker (1.6.0)
   - R.swift (5.0.2):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.0)
@@ -8,25 +7,22 @@ PODS:
 
 DEPENDENCIES:
   - Cosmos
-  - LifetimeTracker
   - R.swift
   - SteviaLayout
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Cosmos
-    - LifetimeTracker
     - R.swift
     - R.swift.Library
     - SteviaLayout
 
 SPEC CHECKSUMS:
   Cosmos: 7dfaa3f52584ca5f94ab74b5c2e264019cc9f7f5
-  LifetimeTracker: 8b7f2979fa70a41e9aaff63d158cae7a027eef10
   R.swift: 81455d81467763cbd3f4d79d938d05f4ac4c0228
   R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
   SteviaLayout: 523469269059f2c6da02820bb2ff28a5fe0780aa
 
-PODFILE CHECKSUM: 4ab5809189da4d64b45ea21b22c4a49d64d6c679
+PODFILE CHECKSUM: ac3862b506d6f82362c2198b8480a2d34b729fdc
 
 COCOAPODS: 1.5.3

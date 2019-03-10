@@ -28,7 +28,7 @@ enum CellAction: Hashable {
 extension CellAction {
     static let notificationName = NSNotification.Name(rawValue: "CellAction")
     
-    public func invoke(cell: UIView, value: Any?) {
+    public func invoke(cell: Any, value: Any?) {
         NotificationCenter.default.post(name: CellAction.notificationName,
                                         object: nil,
                                         userInfo: ["data": CellActionEventData(action: self, cell: cell, value: value)])
@@ -60,6 +60,6 @@ class CellActionProxy {
 
 struct CellActionEventData {
     let action: CellAction
-    let cell: UIView
+    let cell: Any
     let value : Any?
 }

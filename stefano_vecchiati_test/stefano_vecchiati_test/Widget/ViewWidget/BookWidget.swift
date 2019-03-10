@@ -31,6 +31,7 @@ class BookWidget: UICollectionViewCell, ConfigurableCell {
        
     }
     
+    // load the view
     func configure(data: BookModel) {
         
         addElementsToSuperView()
@@ -38,15 +39,18 @@ class BookWidget: UICollectionViewCell, ConfigurableCell {
         bookTitleLabel.style { label in
             label.numberOfLines = 0
             label.font = UIFont.boldSystemFont(ofSize: 18)
-            label.text = data.title.uppercased()
         }
+        
+        bookTitleLabel.text = data.title.uppercased()
         
         bookDescriptionLabel.style { label in
             label.numberOfLines = 0
             label.textColor = .gray
             label.font = UIFont.systemFont(ofSize: 14)
-            label.text = data.description
+            
         }
+        
+        bookDescriptionLabel.text = data.description
         
         bookImageView.image = UIImage(named: data.imageName) ?? R.image.placeholder() ?? UIImage()
         
@@ -60,20 +64,26 @@ class BookWidget: UICollectionViewCell, ConfigurableCell {
             rate.settings.filledBorderColor = colortStarFull
             rate.settings.emptyColor = colorStarEmpty
             rate.settings.emptyBorderColor = colorStarEmpty
-            rate.rating = data.rate
-            rate.text = "(\(data.rate))"
+            
+            
         }
         
+        rateView.rating = data.rate
+        rateView.text = "(\(data.rate.roundToDecimal(1)))"
+        
+        // change the value when finished to touch
         rateView.didFinishTouchingCosmos = { rating in
             CellAction.custom(.Rate).invoke(cell: self, value: rating)
         }
         
+        // change the text value for show at the user the value taht will change
         rateView.didTouchCosmos = { rating in
-            self.rateView.text = "(\(rating))"
+            self.rateView.text = "(\(rating.roundToDecimal(1)))"
         }
         
     }
     
+    // add the elements as subviews (I use Stevia)
     func addElementsToSuperView() {
         sv(
             view.sv(
@@ -88,6 +98,7 @@ class BookWidget: UICollectionViewCell, ConfigurableCell {
         setConstraint()
     }
     
+    //Set the constraint of the views (Stevia)
     func setConstraint() {
         
         // view container contraint
@@ -116,21 +127,6 @@ class BookWidget: UICollectionViewCell, ConfigurableCell {
         align(lefts: bookTitleLabel, bookDescriptionLabel, rateView)
         align(bottoms: bookImageView, bookDescriptionLabel)
         
-        
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//
-//        let widthConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: UIScreen.main.bounds.width)
-//        widthConstraint.priority = .defaultHigh
-//
-//        view.addConstraints([widthConstraint])
-        
-    }
-    
-    override func willMove(toWindow newWindow: UIWindow?) {
-        super.willMove(toWindow: newWindow)
-        
-        
-//        setConstraint()
         
     }
 

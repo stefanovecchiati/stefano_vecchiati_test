@@ -8,12 +8,13 @@
 
 import UIKit
 
-
 class BookListViewModel: BaseModel {
     
     typealias BookCellConfig = CollectionCellConfigurator<BookWidget, BookModel>
     
     private var books: [BookModel] = []
+    
+    private var randomRateButton : UIBarButtonItem!
     
     override init(){
         super.init()
@@ -50,8 +51,53 @@ class BookListViewModel: BaseModel {
         
         self.titleViewController = R.string.localizable.kBookListTitle()
         
-        let randomRateButton = UIBarButtonItem(title: R.string.localizable.kRandomRaiting(), style: .plain, target: self, action: nil)
+        randomRateButton = UIBarButtonItem(title: R.string.localizable.kRandomRaiting(), style: .plain, target: self, action: #selector(randomRateAction))
+        randomRateButton.tintColor = UIColor.hexColor(hex: "007AFF")
         self.rightBarButtonItems = [randomRateButton]
+        
+    }
+    
+    // variable for check if I must or stop the random rate process
+    private var proceedWithRandomProcess : Bool = false {
+        didSet {
+            proceedWithRandomProcess ? (randomRateButton.tintColor = .gray) : (randomRateButton.tintColor = UIColor.hexColor(hex: "007AFF"))
+        }
+    }
+    
+    // random rate process function
+    @objc func randomRateAction() {
+        
+        proceedWithRandomProcess = !proceedWithRandomProcess
+        
+        DispatchQueue.global(qos: .background).async {
+            while self.proceedWithRandomProcess {
+                
+                let range:Range<UInt32> = 2..<8
+                
+                self.randomDelay(range: range) {
+                    
+                    let rangeCell = Int.random(in: 0..<self.books.count)
+                    let rangeStar = Double.random(in: 0...5)
+                    
+                    // execute this code on the main thread because you are working with some UI
+                    DispatchQueue.main.async {
+                        
+                        if let randomCell = self.collectionDirector.collectionView.cellForItem(at: IndexPath(item: rangeCell, section: 0)) {
+                            
+                            if self.proceedWithRandomProcess {
+                                
+                                CellAction.custom(.Rate).invoke(cell: randomCell, value: rangeStar)
+                                
+                            } else {
+                                return
+                            }
+                            
+                        }
+                    }
+                }
+                
+            }
+        }
         
     }
     
@@ -59,6 +105,7 @@ class BookListViewModel: BaseModel {
     override func addHandlers() {
         self.collectionDirector.actionsProxy
             .on(.custom((.Rate))) { (c: BookCellConfig, cell, value) in
+                
                 
                 guard let rateValue = value as? Double, let indexPath = self.collectionDirector.collectionView.indexPath(for: cell) else { return }
                 
@@ -79,12 +126,17 @@ class BookListViewModel: BaseModel {
                     }
                     
                 })
-
                 
-                
-            }
+        }
     }
+    
+    // register the cells that the collectionView needs
+    override func registerCells() {
 
+        self.collectionDirector.collectionView.register(BookWidget.self, forCellWithReuseIdentifier: BookCellConfig.reuseId)
+        
+    }
+    
+    
+    
 }
-
-

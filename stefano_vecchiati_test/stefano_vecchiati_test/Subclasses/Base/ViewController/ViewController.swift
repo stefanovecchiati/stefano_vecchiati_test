@@ -51,11 +51,9 @@ class ViewController: UIViewController {
         addBackgroudImage()
         addCollectionView()
         
-        for cell in viewModel.cells {
-            collectionView.register(BookWidget.self, forCellWithReuseIdentifier: type(of: cell).reuseId)
-        }
-        
         viewModel.collectionDirector = CollectionDirector(collectionView: self.collectionView, items: self.viewModel.cells)
+        
+        viewModel.registerCells()
         
         viewModel.addHandlers()
         
