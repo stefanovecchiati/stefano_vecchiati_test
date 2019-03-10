@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let screenBounds:CGRect = UIScreen.main.bounds
 
-        let viewController = LoadingViewController()
+        let viewController = RootViewController()
 
         self.window = UIWindow(frame: screenBounds)
 

@@ -25,7 +25,7 @@
 		7BEDF5A52233A20D00FE494C /* BookWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5A42233A20D00FE494C /* BookWidget.swift */; };
 		7BEDF5AB2233A20D00FE494C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 7BEDF5AA2233A20D00FE494C /* Podfile */; };
 		7BEDF5AD2233A20D00FE494C /* GeneralUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5AC2233A20D00FE494C /* GeneralUtils.swift */; };
-		7BEDF5AF2233A20D00FE494C /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5AE2233A20D00FE494C /* LoadingViewController.swift */; };
+		7BEDF5AF2233A20D00FE494C /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5AE2233A20D00FE494C /* RootViewController.swift */; };
 		7BEDF5B22233A20D00FE494C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5B12233A20D00FE494C /* ViewController.swift */; };
 		7BEDF5B52233A20D00FE494C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BEDF5B32233A20D00FE494C /* Localizable.strings */; };
 		7BEDF5B72233A20D00FE494C /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5B62233A20D00FE494C /* DeviceModel.swift */; };
@@ -56,7 +56,7 @@
 
 /* Begin PBXFileReference section */
 		6C11988AB6AEB32347952B30 /* Pods-stefano_vecchiati_test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stefano_vecchiati_test.release.xcconfig"; path = "Pods/Target Support Files/Pods-stefano_vecchiati_test/Pods-stefano_vecchiati_test.release.xcconfig"; sourceTree = "<group>"; };
-		7B46A2332233AB2300BC1673 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		7B46A2332233AB2300BC1673 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		7B46A2362233B6AD00BC1673 /* BookListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewModel.swift; sourceTree = "<group>"; };
 		7B46A2382233BECE00BC1673 /* CellConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfigurator.swift; sourceTree = "<group>"; };
 		7B46A23A2233E37100BC1673 /* BookList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BookList.json; sourceTree = "<group>"; };
@@ -68,19 +68,19 @@
 		7B8E9374B8F47FC7BC5B5D1E /* Pods_stefano_vecchiati_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stefano_vecchiati_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BEDF5882233A20D00FE494C /* stefano_vecchiati_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stefano_vecchiati_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BEDF58B2233A20D00FE494C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7BEDF58D2233A20D00FE494C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Utilities/Extensions.swift; sourceTree = "<group>"; };
-		7BEDF5932233A20D00FE494C /* BaseColletcionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseColletcionView.swift; path = Subclasses/Base/BaseColletcionView.swift; sourceTree = "<group>"; };
-		7BEDF5952233A20D00FE494C /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseModel.swift; path = Subclasses/Base/BaseModel.swift; sourceTree = "<group>"; };
-		7BEDF5972233A20D00FE494C /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseNavigationController.swift; path = Subclasses/Base/BaseNavigationController.swift; sourceTree = "<group>"; };
-		7BEDF59B2233A20D00FE494C /* BaseWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseWidgetView.swift; path = Subclasses/Base/BaseWidgetView.swift; sourceTree = "<group>"; };
-		7BEDF5A42233A20D00FE494C /* BookWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookWidget.swift; path = Widget/ViewWidget/BookWidget.swift; sourceTree = "<group>"; };
-		7BEDF5AA2233A20D00FE494C /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		7BEDF5AC2233A20D00FE494C /* GeneralUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralUtils.swift; path = Utilities/GeneralUtils.swift; sourceTree = "<group>"; };
-		7BEDF5AE2233A20D00FE494C /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
-		7BEDF5B12233A20D00FE494C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Subclasses/Base/ViewController/ViewController.swift; sourceTree = "<group>"; };
+		7BEDF58D2233A20D00FE494C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7BEDF5932233A20D00FE494C /* BaseColletcionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseColletcionView.swift; path = BaseColletcionView.swift; sourceTree = "<group>"; };
+		7BEDF5952233A20D00FE494C /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseModel.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		7BEDF5972233A20D00FE494C /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseNavigationController.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		7BEDF59B2233A20D00FE494C /* BaseWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseWidgetView.swift; path = BaseWidgetView.swift; sourceTree = "<group>"; };
+		7BEDF5A42233A20D00FE494C /* BookWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookWidget.swift; path = BookWidget.swift; sourceTree = "<group>"; };
+		7BEDF5AA2233A20D00FE494C /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7BEDF5AC2233A20D00FE494C /* GeneralUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralUtils.swift; path = GeneralUtils.swift; sourceTree = "<group>"; };
+		7BEDF5AE2233A20D00FE494C /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		7BEDF5B12233A20D00FE494C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7BEDF5B42233A20D00FE494C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7BEDF5B62233A20D00FE494C /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeviceModel.swift; path = Utilities/DeviceModel.swift; sourceTree = "<group>"; };
-		7BEDF5C12233A20D00FE494C /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookModel.swift; path = Services/Models/BookModel.swift; sourceTree = "<group>"; };
+		7BEDF5B62233A20D00FE494C /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeviceModel.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
+		7BEDF5C12233A20D00FE494C /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookModel.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		7BEDF5C62233A21000FE494C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BEDF5C92233A21000FE494C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7BEDF5CB2233A21000FE494C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,6 +129,7 @@
 				7B46A2332233AB2300BC1673 /* R.generated.swift */,
 			);
 			name = Utilities;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		7B46A2352233B63200BC1673 /* ViewModel */ = {
@@ -137,6 +138,7 @@
 				7B46A2362233B6AD00BC1673 /* BookListViewModel.swift */,
 			);
 			name = ViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		7B46A27E223510E600BC1673 /* ColectionDirector */ = {
@@ -146,6 +148,7 @@
 				7B46A279223510D000BC1673 /* CollectionDirector.swift */,
 			);
 			name = ColectionDirector;
+			path = ColectionDirector;
 			sourceTree = "<group>";
 		};
 		7BEDF57E2233A20D00FE494C = {
@@ -174,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				7BEDF58B2233A20D00FE494C /* AppDelegate.swift */,
+				7BEDF5AE2233A20D00FE494C /* RootViewController.swift */,
 				7BEDF58F2233A20D00FE494C /* Subclasses */,
 				7BEDF5A22233A20D00FE494C /* Widget */,
 				7B46A2352233B63200BC1673 /* ViewModel */,
@@ -181,7 +185,6 @@
 				7BEDF5BF2233A20D00FE494C /* Services */,
 				7B46A2322233A5CA00BC1673 /* Utilities */,
 				7BEDF5AA2233A20D00FE494C /* Podfile */,
-				7BEDF5AE2233A20D00FE494C /* LoadingViewController.swift */,
 				7B46A23A2233E37100BC1673 /* BookList.json */,
 				7BEDF5B32233A20D00FE494C /* Localizable.strings */,
 				7BEDF5C62233A21000FE494C /* Assets.xcassets */,
@@ -197,6 +200,7 @@
 				7BEDF5902233A20D00FE494C /* Base */,
 			);
 			name = Subclasses;
+			path = Subclasses;
 			sourceTree = "<group>";
 		};
 		7BEDF5902233A20D00FE494C /* Base */ = {
@@ -212,6 +216,7 @@
 				7BEDF5B02233A20D00FE494C /* ViewController */,
 			);
 			name = Base;
+			path = Base;
 			sourceTree = "<group>";
 		};
 		7BEDF5A22233A20D00FE494C /* Widget */ = {
@@ -220,6 +225,7 @@
 				7BEDF5A32233A20D00FE494C /* BookWidget */,
 			);
 			name = Widget;
+			path = Widget;
 			sourceTree = "<group>";
 		};
 		7BEDF5A32233A20D00FE494C /* BookWidget */ = {
@@ -228,6 +234,7 @@
 				7BEDF5A42233A20D00FE494C /* BookWidget.swift */,
 			);
 			name = BookWidget;
+			path = BookWidget;
 			sourceTree = "<group>";
 		};
 		7BEDF5B02233A20D00FE494C /* ViewController */ = {
@@ -236,6 +243,7 @@
 				7BEDF5B12233A20D00FE494C /* ViewController.swift */,
 			);
 			name = ViewController;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		7BEDF5BF2233A20D00FE494C /* Services */ = {
@@ -244,6 +252,7 @@
 				7B46A23C2233E4B600BC1673 /* JsonManager.swift */,
 			);
 			name = Services;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		7BEDF5C02233A20D00FE494C /* Model */ = {
@@ -252,6 +261,7 @@
 				7BEDF5C12233A20D00FE494C /* BookModel.swift */,
 			);
 			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7BEDF5D32233A21000FE494C /* stefano_vecchiati_testTests */ = {
@@ -512,7 +522,7 @@
 				7BEDF58E2233A20D00FE494C /* Extensions.swift in Sources */,
 				7B46A2342233AB2300BC1673 /* R.generated.swift in Sources */,
 				7BEDF5C22233A20D00FE494C /* BookModel.swift in Sources */,
-				7BEDF5AF2233A20D00FE494C /* LoadingViewController.swift in Sources */,
+				7BEDF5AF2233A20D00FE494C /* RootViewController.swift in Sources */,
 				7B46A23D2233E4B600BC1673 /* JsonManager.swift in Sources */,
 				7B46A25922350DF600BC1673 /* ListDiff.swift in Sources */,
 				7B46A2392233BECE00BC1673 /* CellConfigurator.swift in Sources */,
@@ -559,6 +569,7 @@
 				7BEDF5B42233A20D00FE494C /* en */,
 			);
 			name = Localizable.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 		7BEDF5C82233A21000FE494C /* LaunchScreen.storyboard */ = {
@@ -567,6 +578,7 @@
 				7BEDF5C92233A21000FE494C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
