@@ -3,11 +3,13 @@ PODS:
   - R.swift (5.0.2):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.0)
+  - Reveal-SDK (20)
   - SteviaLayout (4.4.4)
 
 DEPENDENCIES:
   - Cosmos
   - R.swift
+  - Reveal-SDK (= 20)
   - SteviaLayout
 
 SPEC REPOS:
@@ -15,14 +17,16 @@ SPEC REPOS:
     - Cosmos
     - R.swift
     - R.swift.Library
+    - Reveal-SDK
     - SteviaLayout
 
 SPEC CHECKSUMS:
   Cosmos: 7dfaa3f52584ca5f94ab74b5c2e264019cc9f7f5
   R.swift: 81455d81467763cbd3f4d79d938d05f4ac4c0228
   R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
+  Reveal-SDK: 43206a57f575632fd304e85385cc259b5d359e32
   SteviaLayout: 523469269059f2c6da02820bb2ff28a5fe0780aa
 
-PODFILE CHECKSUM: ac3862b506d6f82362c2198b8480a2d34b729fdc
+PODFILE CHECKSUM: 9c3e60efc22208c865df4f25ce1f4063df0e3501
 
 COCOAPODS: 1.5.3

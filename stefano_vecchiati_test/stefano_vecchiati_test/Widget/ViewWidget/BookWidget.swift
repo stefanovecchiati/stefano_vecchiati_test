@@ -31,10 +31,17 @@ class BookWidget: UICollectionViewCell, ConfigurableCell {
        
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addElementsToSuperView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // load the view
     func configure(data: BookModel) {
-        
-        addElementsToSuperView()
         
         bookTitleLabel.style { label in
             label.numberOfLines = 0
@@ -94,10 +101,8 @@ class BookWidget: UICollectionViewCell, ConfigurableCell {
             )
         
         )
-        
         setConstraint()
     }
-    
     //Set the constraint of the views (Stevia)
     func setConstraint() {
         
@@ -118,6 +123,8 @@ class BookWidget: UICollectionViewCell, ConfigurableCell {
         // titleLabel constraint
         bookTitleLabel.Leading == bookImageView.Trailing + 10
         bookTitleLabel.Trailing == -10
+        
+//        bookTitleLabel.height(50)
 
         align(tops: bookImageView, bookTitleLabel)
 
@@ -135,5 +142,7 @@ class BookWidget: UICollectionViewCell, ConfigurableCell {
         
         
     }
+    
+    
 
 }

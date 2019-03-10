@@ -12,4 +12,6 @@ pod 'SteviaLayout'
 
 pod 'Cosmos'
 
+pod 'Reveal-SDK', 20, :configurations => ['Debug’]
+
 end
