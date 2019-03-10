@@ -18,7 +18,6 @@
 		7B46A27C223510D100BC1673 /* CellActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46A27A223510D100BC1673 /* CellActions.swift */; };
 		7BEDF58C2233A20D00FE494C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF58B2233A20D00FE494C /* AppDelegate.swift */; };
 		7BEDF58E2233A20D00FE494C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF58D2233A20D00FE494C /* Extensions.swift */; };
-		7BEDF5922233A20D00FE494C /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5912233A20D00FE494C /* BaseCollectionViewCell.swift */; };
 		7BEDF5942233A20D00FE494C /* BaseColletcionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5932233A20D00FE494C /* BaseColletcionView.swift */; };
 		7BEDF5962233A20D00FE494C /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5952233A20D00FE494C /* BaseModel.swift */; };
 		7BEDF5982233A20D00FE494C /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDF5972233A20D00FE494C /* BaseNavigationController.swift */; };
@@ -70,7 +69,6 @@
 		7BEDF5882233A20D00FE494C /* stefano_vecchiati_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stefano_vecchiati_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BEDF58B2233A20D00FE494C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BEDF58D2233A20D00FE494C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Utilities/Extensions.swift; sourceTree = "<group>"; };
-		7BEDF5912233A20D00FE494C /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseCollectionViewCell.swift; path = Subclasses/Base/BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		7BEDF5932233A20D00FE494C /* BaseColletcionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseColletcionView.swift; path = Subclasses/Base/BaseColletcionView.swift; sourceTree = "<group>"; };
 		7BEDF5952233A20D00FE494C /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseModel.swift; path = Subclasses/Base/BaseModel.swift; sourceTree = "<group>"; };
 		7BEDF5972233A20D00FE494C /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseNavigationController.swift; path = Subclasses/Base/BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -206,7 +204,6 @@
 			children = (
 				7B46A27E223510E600BC1673 /* ColectionDirector */,
 				7B46A2382233BECE00BC1673 /* CellConfigurator.swift */,
-				7BEDF5912233A20D00FE494C /* BaseCollectionViewCell.swift */,
 				7BEDF5932233A20D00FE494C /* BaseColletcionView.swift */,
 				7BEDF5952233A20D00FE494C /* BaseModel.swift */,
 				7B46A23E2234301500BC1673 /* BaseEnum.swift */,
@@ -438,7 +435,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -514,7 +511,6 @@
 				7BEDF5982233A20D00FE494C /* BaseNavigationController.swift in Sources */,
 				7BEDF58E2233A20D00FE494C /* Extensions.swift in Sources */,
 				7B46A2342233AB2300BC1673 /* R.generated.swift in Sources */,
-				7BEDF5922233A20D00FE494C /* BaseCollectionViewCell.swift in Sources */,
 				7BEDF5C22233A20D00FE494C /* BookModel.swift in Sources */,
 				7BEDF5AF2233A20D00FE494C /* LoadingViewController.swift in Sources */,
 				7B46A23D2233E4B600BC1673 /* JsonManager.swift in Sources */,

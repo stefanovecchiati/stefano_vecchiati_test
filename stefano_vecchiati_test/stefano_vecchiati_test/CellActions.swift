@@ -1,9 +1,6 @@
 //
-//  CellActions.swift
-//  TableTest
-//
-//  Created by Igors Nemenonoks on 29/10/2017.
-//  Copyright © 2017 Chili. All rights reserved.
+//  Created by stefano vecchiati.
+//  Copyright © 2018 co.eggon. All rights reserved.
 //
 
 import UIKit

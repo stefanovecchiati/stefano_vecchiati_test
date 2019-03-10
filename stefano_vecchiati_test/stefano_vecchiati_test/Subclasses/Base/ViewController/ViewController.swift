@@ -82,23 +82,11 @@ class ViewController: UIViewController {
         backgroundImage = UIImageView(image: viewModel.backgroudImage)
         backgroundImage.contentMode = .scaleAspectFill
         
-        view.insertSubview(backgroundImage, at: 0)
+        view.sv(
+            backgroundImage
+        )
         
-        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
-        
-        let leftConstraint = NSLayoutConstraint(item: backgroundImage, attribute: NSLayoutConstraint.Attribute.left, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.left, multiplier: 1, constant: 0)
-        leftConstraint.priority = .defaultHigh
-        
-        let rightConstraint = NSLayoutConstraint(item: backgroundImage, attribute: NSLayoutConstraint.Attribute.right, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.right, multiplier: 1, constant: 0)
-        rightConstraint.priority = .defaultHigh
-        
-        let topConstraint = NSLayoutConstraint(item: backgroundImage, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 0)
-        topConstraint.priority = .defaultHigh
-        
-        let bottomConstraint = NSLayoutConstraint(item: backgroundImage, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 0)
-        bottomConstraint.priority = .defaultHigh
-        
-        view.addConstraints([leftConstraint, rightConstraint, topConstraint, bottomConstraint])
+        backgroundImage.fillContainer()
     }
     
     var collectionBottomConstraint : NSLayoutConstraint!
@@ -139,36 +127,6 @@ class ViewController: UIViewController {
     
     
 }
-
-//extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-//
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return 1
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return viewModel.cells.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//        let item = viewModel.cells[indexPath.row]
-//
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: type(of: item).reuseId, for: indexPath) as? BaseCollectionViewCell else { return UICollectionViewCell() }
-//
-//        item.configure(cell: cell)
-//
-//        cell.delegate = self
-//        cell.indexPath = indexPath
-//
-//        return cell
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//
-//    }
-//
-//}
 
 
 extension ViewController {

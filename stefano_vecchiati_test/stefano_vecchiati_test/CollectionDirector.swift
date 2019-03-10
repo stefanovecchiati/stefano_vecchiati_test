@@ -1,15 +1,12 @@
 //
-//  TableDirector.swift
-//  TableTest
-//
-//  Created by Igors Nemenonoks on 29/10/2017.
-//  Copyright © 2017 Chili. All rights reserved.
+//  Created by stefano vecchiati.
+//  Copyright © 2018 co.eggon. All rights reserved.
 //
 
 import UIKit
 
 class CollectionDirector: NSObject {
-    let collectionView: UICollectionView
+    let collectionView: BaseColletcionView
     let actionsProxy = CellActionProxy()
     private(set) var items = [CellConfigurator]() {
         didSet {
@@ -24,7 +21,7 @@ class CollectionDirector: NSObject {
         }
     }
     
-    init(collectionView: UICollectionView, items: [CellConfigurator]) {
+    init(collectionView: BaseColletcionView, items: [CellConfigurator]) {
         self.collectionView = collectionView
         super.init()
         self.collectionView.delegate = self
@@ -73,26 +70,8 @@ extension CollectionDirector: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
-extension UICollectionView {
+extension BaseColletcionView {
     func perform(result: DiffList.Result) {
-        if result.hasChanges {
-            self.performBatchUpdates({
-                if !result.deletes.isEmpty {
-                    self.deleteItems(at: result.deletes.compactMap { IndexPath(row: $0, section: 0) })
-                }
-                if !result.inserts.isEmpty {
-                    self.insertItems(at: result.inserts.compactMap { IndexPath(row: $0, section: 0) })
-                }
-                if !result.updates.isEmpty {
-                    self.reloadItems(at: result.updates.compactMap { IndexPath(row: $0, section: 0) })
-                }
-                if !result.moves.isEmpty {
-                    result.moves.forEach({ (index) in
-                        let toIndexPath = IndexPath(row: index.to, section: 0)
-                        self.moveItem(at: IndexPath(row: index.from, section: 0), to: toIndexPath)
-                    })
-                }
-            }, completion: nil)
-        }
+        self.update()
     }
 }

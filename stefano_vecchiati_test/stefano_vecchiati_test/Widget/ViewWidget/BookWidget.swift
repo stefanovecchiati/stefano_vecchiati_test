@@ -7,7 +7,7 @@ import UIKit
 import Stevia
 import Cosmos
 
-class BookWidget: BaseCollectionViewCell, ConfigurableCell {
+class BookWidget: UICollectionViewCell, ConfigurableCell {
 
     typealias DataType = BookModel
     
@@ -90,26 +90,39 @@ class BookWidget: BaseCollectionViewCell, ConfigurableCell {
     
     func setConstraint() {
         
+        // view container contraint
         view.Width == UIScreen.main.bounds.width
         view.top(0).bottom(0).left(0).right(0)
         
+        // imageView constraint
         bookImageView.top(5).bottom(5).height(150).width(100)
         bookImageView.Leading == 15
-        
+
+        // titleLabel constraint
         bookTitleLabel.Leading == bookImageView.Trailing + 10
         bookTitleLabel.Trailing == -10
 
         align(tops: bookImageView, bookTitleLabel)
-        
+
+        // rateView constraint
         rateView.Top == bookTitleLabel.Bottom + 5
         rateView.Trailing == -10
         rateView.Height == 20
-        
+
+        // descriptionLabel constraint
         bookDescriptionLabel.Trailing == -10
         bookDescriptionLabel.Top == rateView.Bottom + 5
 
         align(lefts: bookTitleLabel, bookDescriptionLabel, rateView)
         align(bottoms: bookImageView, bookDescriptionLabel)
+        
+        
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//
+//        let widthConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: UIScreen.main.bounds.width)
+//        widthConstraint.priority = .defaultHigh
+//
+//        view.addConstraints([widthConstraint])
         
     }
     

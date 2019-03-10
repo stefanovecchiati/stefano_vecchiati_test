@@ -27,21 +27,13 @@ class BaseColletcionView: UICollectionView {
         
     }
     
-    public func reloadDataAndKeepOffset() {
-        // stop scrolling
-        setContentOffset(contentOffset, animated: false)
+    func update() {
         
-        // calculate the offset and reloadData
-        let beforeContentSize = contentSize
-        reloadData()
-        layoutIfNeeded()
-        let afterContentSize = contentSize
+        let contentOffset = self.contentOffset
+        self.reloadData()
+        self.layoutIfNeeded()
+        self.setContentOffset(contentOffset, animated: false)
         
-        // reset the contentOffset after data is updated
-        let newOffset = CGPoint(
-            x: contentOffset.x + (afterContentSize.width - beforeContentSize.width),
-            y: contentOffset.y + (afterContentSize.height - beforeContentSize.height))
-        setContentOffset(newOffset, animated: false)
     }
     
     private var shouldInvalidateLayout = false

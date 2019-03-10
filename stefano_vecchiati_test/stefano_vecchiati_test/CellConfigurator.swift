@@ -21,26 +21,7 @@ protocol CellConfigurator : class {
     var hash: Int { get }
 }
 
-//class CollectionCellConfigurator<CellType: ConfigurableCell, DataType>: CellConfigurator where CellType.DataType == DataType, CellType: BaseCollectionViewCell {
-//
-//    static var reuseId: String { return String(describing: CellType.self) }
-//
-//    let item: DataType
-//
-//    init(item: DataType) {
-//
-//        self.item = item
-//    }
-//
-//    func configure(cell: UIView) {
-//
-//        (cell as! CellType).configure(model: item)
-//
-//    }
-//
-//}
-
-class CollectionCellConfigurator<CellType: ConfigurableCell, DataType: Hashable>: CellConfigurator where CellType.DataType == DataType, CellType: BaseCollectionViewCell {
+class CollectionCellConfigurator<CellType: ConfigurableCell, DataType: Hashable>: CellConfigurator where CellType.DataType == DataType, CellType: UICollectionViewCell {
     
     static var reuseId: String { return CellType.reuseIdentifier }
     
