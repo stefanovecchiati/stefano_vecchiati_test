@@ -20,7 +20,11 @@ class BaseModel: NSObject {
     var leftBarButtonItems : [UIBarButtonItem]!
     var hideNavigationBar : Bool = false
     var backgroudImage : UIImage? = nil
-    var delegate: GenericDelegate?
+    var collectionDirector: CollectionDirector!
+    
+    func addHandlers() {
+        
+    }
     
     override init() {
         super.init()
@@ -33,10 +37,6 @@ class BaseModel: NSObject {
         
     }
 
-}
-
-protocol GenericDelegate : class {
-    func valueDidChange(key: ValueDidChangeKeys, value : Any, index: IndexPath)
 }
 
 

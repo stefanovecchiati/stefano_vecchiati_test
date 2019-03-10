@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     var collectionView: BaseColletcionView!
     var backgroundImage : UIImageView!
     
-    private var viewModel : BaseModel!
+    var viewModel : BaseModel!
     
     init(withModel model: BaseModel?) {
         super.init(nibName: nil, bundle: nil)
@@ -55,8 +55,9 @@ class ViewController: UIViewController {
             collectionView.register(BookWidget.self, forCellWithReuseIdentifier: type(of: cell).reuseId)
         }
         
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        viewModel.collectionDirector = CollectionDirector(collectionView: self.collectionView, items: self.viewModel.cells)
+        
+        viewModel.addHandlers()
         
         self.view.backgroundColor = .white
         
@@ -139,41 +140,36 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.cells.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let item = viewModel.cells[indexPath.row]
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: type(of: item).reuseId, for: indexPath) as? BaseCollectionViewCell else { return UICollectionViewCell() }
-        
-        item.configure(cell: cell)
-        
-        cell.delegate = self
-        cell.indexPath = indexPath
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-    
-}
+//extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+//
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 1
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return viewModel.cells.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//
+//        let item = viewModel.cells[indexPath.row]
+//
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: type(of: item).reuseId, for: indexPath) as? BaseCollectionViewCell else { return UICollectionViewCell() }
+//
+//        item.configure(cell: cell)
+//
+//        cell.delegate = self
+//        cell.indexPath = indexPath
+//
+//        return cell
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//
+//    }
+//
+//}
 
-extension ViewController: GenericDelegate {
-    func valueDidChange(key: ValueDidChangeKeys, value: Any, index: IndexPath) {
-        viewModel.delegate?.valueDidChange(key: key, value: value, index: index)
-    }
-}
 
 extension ViewController {
     func hideKeyboardWhenTappedAround() {

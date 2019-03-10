@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LifetimeTracker
+//import LifetimeTracker
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,15 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
-        #if DEBUG
-        // Use LifetimeTracker for see if there are some memory leak
-        LifetimeTracker.setup(onUpdate: LifetimeTrackerDashboardIntegration(visibility: .visibleWithIssuesDetected, style: .bar).refreshUI)
-        #endif
+//        #if DEBUG
+//        // Use LifetimeTracker for see if there are some memory leak
+//        LifetimeTracker.setup(onUpdate: LifetimeTrackerDashboardIntegration(visibility: .alwaysVisible, style: .circular).refreshUI)
+//        #endif
         
         // Use InjectionIII to change the code within the app without building it again
-        Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/iOSInjection10.bundle")!.load()
+//        Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/iOSInjection10.bundle")!.load()
         
         let screenBounds:CGRect = UIScreen.main.bounds
 

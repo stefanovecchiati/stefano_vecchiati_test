@@ -4,7 +4,7 @@ PODS:
   - R.swift (5.0.2):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.0)
-  - SteviaLayout (4.4.3)
+  - SteviaLayout (4.4.4)
 
 DEPENDENCIES:
   - Cosmos
@@ -25,7 +25,7 @@ SPEC CHECKSUMS:
   LifetimeTracker: 8b7f2979fa70a41e9aaff63d158cae7a027eef10
   R.swift: 81455d81467763cbd3f4d79d938d05f4ac4c0228
   R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
-  SteviaLayout: ae5ee66101e03607a93c9b3773b84ab7ba7b3d17
+  SteviaLayout: 523469269059f2c6da02820bb2ff28a5fe0780aa
 
 PODFILE CHECKSUM: 4ab5809189da4d64b45ea21b22c4a49d64d6c679
 

@@ -9,15 +9,14 @@
 import UIKit
 
 
-class BookListViewModel {
+class BookListViewModel: BaseModel {
     
     typealias BookCellConfig = CollectionCellConfigurator<BookWidget, BookModel>
     
     private var books: [BookModel] = []
-
-    func createModel() -> BaseModel? {
-        
-        let model = BaseModel()
+    
+    override init(){
+        super.init()
         
         let jsonResult = JsonManager.share.readJson(fileName: FileJSONName.BookList.rawValue)
         
@@ -27,7 +26,7 @@ class BookListViewModel {
             let alert = GeneralUtils.share.alertBuilder(title: R.string.localizable.kErorr(), message: jsonResult.1?.localizedDescription, closeAction: { _ in })
             
             UIApplication.topViewController()?.present(alert, animated: true, completion: nil)
-            return nil
+            return
         }
         
         let decoder = JSONDecoder()
@@ -36,7 +35,7 @@ class BookListViewModel {
             
             for book in books {
                 let cell = BookCellConfig.init(item: book)
-                model.cells.append(cell)
+                self.cells.append(cell)
             }
             
             
@@ -48,33 +47,44 @@ class BookListViewModel {
             UIApplication.topViewController()?.present(alert, animated: true, completion: nil)
             
         }
-
-        model.titleViewController = R.string.localizable.kBookListTitle()
-        model.delegate = self
+        
+        self.titleViewController = R.string.localizable.kBookListTitle()
         
         let randomRateButton = UIBarButtonItem(title: R.string.localizable.kRandomRaiting(), style: .plain, target: self, action: nil)
-        model.rightBarButtonItems = [randomRateButton]
+        self.rightBarButtonItems = [randomRateButton]
         
-        return model
-    }
-
-}
-
-extension BookListViewModel: GenericDelegate {
-    
-    
-    func valueDidChange(key: ValueDidChangeKeys, value: Any, index: IndexPath) {
-        switch key {
-        case .Rate:
-            guard let rateValue = value as? Double else { return }
-            books[index.row].rate = rateValue
-            JsonManager.share.writeJson(fileName: FileJSONName.BookList.rawValue, object: AnyEncodable(books), completion: { _ in })
-        default:
-            break
-        }
     }
     
     
+    override func addHandlers() {
+        self.collectionDirector.actionsProxy
+            .on(.custom((.Rate))) { (c: BookCellConfig, cell, value) in
+                
+                guard let rateValue = value as? Double, let indexPath = self.collectionDirector.collectionView.indexPath(for: cell) else { return }
+                
+                
+                
+                self.books[indexPath.row].rate = rateValue
+                
+                self.books.sort(by: { $0.rate > $1.rate })
+                
+                JsonManager.share.writeJson(fileName: FileJSONName.BookList.rawValue, object: AnyEncodable(self.books), completion: { success in
+                    
+                    if success {
+                        self.cells = self.books.map({ book in
+                            BookCellConfig.init(item: book)
+                        })
+                        
+                        self.collectionDirector.update(items: self.cells)
+                    }
+                    
+                })
+
+                
+                
+            }
+    }
+
 }
 
 

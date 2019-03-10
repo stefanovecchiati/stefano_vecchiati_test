@@ -31,29 +31,24 @@ class BookWidget: BaseCollectionViewCell, ConfigurableCell {
        
     }
     
-    func configure(model: BookModel) {
+    func configure(data: BookModel) {
         
         addElementsToSuperView()
         
         bookTitleLabel.style { label in
             label.numberOfLines = 0
             label.font = UIFont.boldSystemFont(ofSize: 18)
-            label.text = model.title?.uppercased()
+            label.text = data.title.uppercased()
         }
         
         bookDescriptionLabel.style { label in
             label.numberOfLines = 0
             label.textColor = .gray
             label.font = UIFont.systemFont(ofSize: 14)
-            label.text = model.description
+            label.text = data.description
         }
         
-        guard let name = model.imageName else {
-            bookImageView.image = R.image.placeholder() ?? UIImage()
-            return
-        }
-        
-        bookImageView.image = UIImage(named: name) ?? R.image.placeholder() ?? UIImage()
+        bookImageView.image = UIImage(named: data.imageName) ?? R.image.placeholder() ?? UIImage()
         
         rateView.style { rate in
             
@@ -65,12 +60,12 @@ class BookWidget: BaseCollectionViewCell, ConfigurableCell {
             rate.settings.filledBorderColor = colortStarFull
             rate.settings.emptyColor = colorStarEmpty
             rate.settings.emptyBorderColor = colorStarEmpty
-            rate.rating = model.rate ?? 0
-            rate.text = "(\(model.rate ?? 0))"
+            rate.rating = data.rate
+            rate.text = "(\(data.rate))"
         }
         
         rateView.didFinishTouchingCosmos = { rating in
-            self.delegate?.valueDidChange(key: .Rate, value: rating, index: self.indexPath)
+            CellAction.custom(.Rate).invoke(cell: self, value: rating)
         }
         
         rateView.didTouchCosmos = { rating in
@@ -87,8 +82,10 @@ class BookWidget: BaseCollectionViewCell, ConfigurableCell {
                 rateView,
                 bookDescriptionLabel
             )
-            
+        
         )
+        
+        setConstraint()
     }
     
     func setConstraint() {
@@ -119,7 +116,8 @@ class BookWidget: BaseCollectionViewCell, ConfigurableCell {
     override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
         
-        setConstraint()
+        
+//        setConstraint()
         
     }
 

@@ -56,13 +56,23 @@ class JsonManager: NSObject {
                 do {
                     let jsonData = try JSONEncoder().encode(object)
                     try jsonData.write(to: fileURL)
-                    completion(true)
+                    
+                    DispatchQueue.main.sync {
+                        completion(true)
+                    }
+                    
                 } catch {
                     print("Failed to write JSON data: \(error.localizedDescription)")
-                    completion(false)
+                    
+                    DispatchQueue.main.sync {
+                        completion(false)
+                    }
                 }
             } else {
-                completion(false)
+                
+                DispatchQueue.main.sync {
+                    completion(false)
+                }
             }
         }
     }
